@@ -9,13 +9,15 @@ data {
   int<lower=0> n_obs;
   // number of missing values
   int<lower=0> n_mis;
+  // observed data
+  real y_obs[n_obs];
 }
 
 parameters {
   // states
   matrix[kk, tt] xx;
   // group ID's
-  array[nn] row_vector[kk] ZZ;
+  array[n_ts] row_vector[kk] ZZ;
   // process SD
   real<lower=0> SD_proc;
   // observation SD
